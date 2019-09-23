@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial1_AP1.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Parcial1_AP1
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void EvaluacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            REvaluacionesForm ev = new REvaluacionesForm();
+            ev.MdiParent = this;
+            ev.Show();
         }
     }
 }
