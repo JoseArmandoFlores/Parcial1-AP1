@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Parcial1_AP1.UI.Registros
 {
-    public partial class REvaluacionesForm : Form
+    public partial class REvaluaciones : Form
     {
-        public REvaluacionesForm()
+        public REvaluaciones()
         {
             InitializeComponent();
         }
@@ -73,7 +73,21 @@ namespace Parcial1_AP1.UI.Registros
             bool paso = true;
             if(Convert.ToDecimal(ValortextBox.Text) < Convert.ToDecimal(LogradotextBox.Text))
             {
-                MessageBox.Show("El Valor no puede ser menor que la cantidad lograda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MyerrorProvider.SetError(LogradotextBox, "El campo Logrado no puede ser mayor que el valor");
+                LogradotextBox.Focus();
+                paso = false;
+            }
+
+            if (Convert.ToDecimal(LogradotextBox.Text) < 0 )
+            {
+                MyerrorProvider.SetError(LogradotextBox, "Cantidad invalida");
+                LogradotextBox.Focus();
+                paso = false;
+            }
+
+            if (Convert.ToDecimal(ValortextBox.Text) < 0)
+            {
+                MyerrorProvider.SetError(ValortextBox, "Cantidad invalida");
                 ValortextBox.Focus();
                 paso = false;
             }
@@ -141,15 +155,20 @@ namespace Parcial1_AP1.UI.Registros
             int.TryParse(IDnumericUpDown.Text, out id);
 
             Limpiar();
-
-            if (EvaluacionesBLL.Eliminar(id))
+            if(EvaluacionesBLL.Buscar(id) != null)
             {
-                MessageBox.Show("Eliminado!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (EvaluacionesBLL.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
             else
             {
                 MessageBox.Show("No se puede eliminar una evaluacion que no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -168,6 +187,74 @@ namespace Parcial1_AP1.UI.Registros
             else
             {
                 MessageBox.Show("Evaluacion no encontrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ValortextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 1;
+            decimal logrado = 1;
+
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
+            {
+                valor = Convert.ToDecimal(ValortextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            {
+                logrado = Convert.ToDecimal(LogradotextBox.Text);
+            }
+
+            decimal perdido = valor - logrado;
+
+            PerdidotextBox.Text = Convert.ToString(perdido);
+
+            decimal op = ((logrado / valor) * 100);
+            decimal porciento = 100 - op;
+            if (porciento < 25)
+            {
+                PronosticocomboBox.SelectedIndex = 0;
+            }
+            else if (porciento >= 25 && porciento <= 30)
+            {
+                PronosticocomboBox.SelectedIndex = 1;
+            }
+            else if (porciento > 25)
+            {
+                PronosticocomboBox.SelectedIndex = 2;
+            }
+        }
+
+        private void LogradotextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 1;
+            decimal logrado = 1;
+
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
+            {
+                valor = Convert.ToDecimal(ValortextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            {
+                logrado = Convert.ToDecimal(LogradotextBox.Text);
+            }
+
+            decimal perdido = valor - logrado;
+
+            PerdidotextBox.Text = Convert.ToString(perdido);
+
+            decimal op = ((logrado / valor) * 100);
+            decimal porciento = 100 - op;
+            if (porciento < 25)
+            {
+                PronosticocomboBox.SelectedIndex = 0;
+            }
+            else if (porciento >= 25 && porciento <= 30)
+            {
+                PronosticocomboBox.SelectedIndex = 1;
+            }
+            else if (porciento > 25)
+            {
+                PronosticocomboBox.SelectedIndex = 2;
             }
         }
     }

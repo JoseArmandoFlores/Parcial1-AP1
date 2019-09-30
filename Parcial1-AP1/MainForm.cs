@@ -1,4 +1,5 @@
-﻿using Parcial1_AP1.UI.Registros;
+﻿using Parcial1_AP1.UI.Consultas;
+using Parcial1_AP1.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,14 @@ namespace Parcial1_AP1
 
         private void EvaluacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            REvaluacionesForm ev = new REvaluacionesForm();
+            REvaluaciones ev = new REvaluaciones();
+            ev.MdiParent = this;
+            ev.Show();
+        }
+
+        private void EvaluacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CEvaluaciones ev = new CEvaluaciones();
             ev.MdiParent = this;
             ev.Show();
         }

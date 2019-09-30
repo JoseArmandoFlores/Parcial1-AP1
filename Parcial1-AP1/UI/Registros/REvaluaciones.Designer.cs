@@ -1,6 +1,6 @@
 ﻿namespace Parcial1_AP1.UI.Registros
 {
-    partial class REvaluacionesForm
+    partial class REvaluaciones
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +34,15 @@
             this.Nombrelabel = new System.Windows.Forms.Label();
             this.Valorlabel = new System.Windows.Forms.Label();
             this.CalificacionesgroupBox = new System.Windows.Forms.GroupBox();
-            this.Logradolabel = new System.Windows.Forms.Label();
+            this.PerdidotextBox = new System.Windows.Forms.TextBox();
+            this.LogradotextBox = new System.Windows.Forms.TextBox();
+            this.ValortextBox = new System.Windows.Forms.TextBox();
             this.Perdidolabel = new System.Windows.Forms.Label();
+            this.Logradolabel = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.NombretextBox = new System.Windows.Forms.TextBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ValortextBox = new System.Windows.Forms.TextBox();
-            this.LogradotextBox = new System.Windows.Forms.TextBox();
-            this.PerdidotextBox = new System.Windows.Forms.TextBox();
             this.Decisionlabel = new System.Windows.Forms.Label();
             this.Pronosticolabel = new System.Windows.Forms.Label();
             this.PronosticocomboBox = new System.Windows.Forms.ComboBox();
@@ -50,6 +50,8 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Menoslabel = new System.Windows.Forms.Label();
+            this.Iguallabel = new System.Windows.Forms.Label();
             this.CalificacionesgroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
@@ -97,6 +99,8 @@
             // 
             // CalificacionesgroupBox
             // 
+            this.CalificacionesgroupBox.Controls.Add(this.Iguallabel);
+            this.CalificacionesgroupBox.Controls.Add(this.Menoslabel);
             this.CalificacionesgroupBox.Controls.Add(this.PerdidotextBox);
             this.CalificacionesgroupBox.Controls.Add(this.LogradotextBox);
             this.CalificacionesgroupBox.Controls.Add(this.ValortextBox);
@@ -110,15 +114,29 @@
             this.CalificacionesgroupBox.TabStop = false;
             this.CalificacionesgroupBox.Text = "Calificaciones tareas y parcial";
             // 
-            // Logradolabel
+            // PerdidotextBox
             // 
-            this.Logradolabel.AutoSize = true;
-            this.Logradolabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logradolabel.Location = new System.Drawing.Point(208, 34);
-            this.Logradolabel.Name = "Logradolabel";
-            this.Logradolabel.Size = new System.Drawing.Size(76, 22);
-            this.Logradolabel.TabIndex = 4;
-            this.Logradolabel.Text = "Logrado";
+            this.PerdidotextBox.Location = new System.Drawing.Point(381, 59);
+            this.PerdidotextBox.Name = "PerdidotextBox";
+            this.PerdidotextBox.ReadOnly = true;
+            this.PerdidotextBox.Size = new System.Drawing.Size(92, 22);
+            this.PerdidotextBox.TabIndex = 12;
+            // 
+            // LogradotextBox
+            // 
+            this.LogradotextBox.Location = new System.Drawing.Point(203, 59);
+            this.LogradotextBox.Name = "LogradotextBox";
+            this.LogradotextBox.Size = new System.Drawing.Size(92, 22);
+            this.LogradotextBox.TabIndex = 11;
+            this.LogradotextBox.TextChanged += new System.EventHandler(this.LogradotextBox_TextChanged);
+            // 
+            // ValortextBox
+            // 
+            this.ValortextBox.Location = new System.Drawing.Point(24, 59);
+            this.ValortextBox.Name = "ValortextBox";
+            this.ValortextBox.Size = new System.Drawing.Size(92, 22);
+            this.ValortextBox.TabIndex = 10;
+            this.ValortextBox.TextChanged += new System.EventHandler(this.ValortextBox_TextChanged);
             // 
             // Perdidolabel
             // 
@@ -129,6 +147,16 @@
             this.Perdidolabel.Size = new System.Drawing.Size(73, 22);
             this.Perdidolabel.TabIndex = 5;
             this.Perdidolabel.Text = "Perdido";
+            // 
+            // Logradolabel
+            // 
+            this.Logradolabel.AutoSize = true;
+            this.Logradolabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logradolabel.Location = new System.Drawing.Point(208, 34);
+            this.Logradolabel.Name = "Logradolabel";
+            this.Logradolabel.Size = new System.Drawing.Size(76, 22);
+            this.Logradolabel.TabIndex = 4;
+            this.Logradolabel.Text = "Logrado";
             // 
             // FechadateTimePicker
             // 
@@ -162,35 +190,13 @@
             this.IDnumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.IDnumericUpDown.TabIndex = 9;
             // 
-            // ValortextBox
-            // 
-            this.ValortextBox.Location = new System.Drawing.Point(24, 59);
-            this.ValortextBox.Name = "ValortextBox";
-            this.ValortextBox.Size = new System.Drawing.Size(92, 22);
-            this.ValortextBox.TabIndex = 10;
-            // 
-            // LogradotextBox
-            // 
-            this.LogradotextBox.Location = new System.Drawing.Point(203, 59);
-            this.LogradotextBox.Name = "LogradotextBox";
-            this.LogradotextBox.Size = new System.Drawing.Size(92, 22);
-            this.LogradotextBox.TabIndex = 11;
-            // 
-            // PerdidotextBox
-            // 
-            this.PerdidotextBox.Location = new System.Drawing.Point(381, 59);
-            this.PerdidotextBox.Name = "PerdidotextBox";
-            this.PerdidotextBox.ReadOnly = true;
-            this.PerdidotextBox.Size = new System.Drawing.Size(92, 22);
-            this.PerdidotextBox.TabIndex = 12;
-            // 
             // Decisionlabel
             // 
             this.Decisionlabel.AutoSize = true;
-            this.Decisionlabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Decisionlabel.Location = new System.Drawing.Point(12, 209);
+            this.Decisionlabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Decisionlabel.Location = new System.Drawing.Point(12, 217);
             this.Decisionlabel.Name = "Decisionlabel";
-            this.Decisionlabel.Size = new System.Drawing.Size(202, 22);
+            this.Decisionlabel.Size = new System.Drawing.Size(172, 19);
             this.Decisionlabel.TabIndex = 10;
             this.Decisionlabel.Text = "Por como vas deberias: ";
             // 
@@ -250,7 +256,27 @@
             // 
             this.MyerrorProvider.ContainerControl = this;
             // 
-            // REvaluacionesForm
+            // Menoslabel
+            // 
+            this.Menoslabel.AutoSize = true;
+            this.Menoslabel.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Menoslabel.Location = new System.Drawing.Point(147, 43);
+            this.Menoslabel.Name = "Menoslabel";
+            this.Menoslabel.Size = new System.Drawing.Size(31, 43);
+            this.Menoslabel.TabIndex = 13;
+            this.Menoslabel.Text = "-";
+            // 
+            // Iguallabel
+            // 
+            this.Iguallabel.AutoSize = true;
+            this.Iguallabel.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Iguallabel.Location = new System.Drawing.Point(322, 48);
+            this.Iguallabel.Name = "Iguallabel";
+            this.Iguallabel.Size = new System.Drawing.Size(40, 43);
+            this.Iguallabel.TabIndex = 14;
+            this.Iguallabel.Text = "=";
+            // 
+            // REvaluaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -269,8 +295,8 @@
             this.Controls.Add(this.Nombrelabel);
             this.Controls.Add(this.Fechalabel);
             this.Controls.Add(this.Idlabel);
-            this.Name = "REvaluacionesForm";
-            this.Text = "REvaluacionesForm";
+            this.Name = "REvaluaciones";
+            this.Text = "Registro Evaluaciones";
             this.Load += new System.EventHandler(this.REvaluacionesForm_Load);
             this.CalificacionesgroupBox.ResumeLayout(false);
             this.CalificacionesgroupBox.PerformLayout();
@@ -304,5 +330,7 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider MyerrorProvider;
+        private System.Windows.Forms.Label Iguallabel;
+        private System.Windows.Forms.Label Menoslabel;
     }
 }
